@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nepali Calendar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://calendar.onlinekhabar.com/dist/okcalendar.min.css">
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#5e60ce">
+<link rel="icon" type="image/png" href="images/favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #f9f9f9;
+    }
+
+    .widget-container {
+      padding: 8px;            /* Reduced padding for mobile */
+      box-sizing: border-box;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .widget-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .widget-header-block {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30%;
+      height: 50px;
+      z-index: 10;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .second-widget {
+      margin-top: 2px;
+    }
+
+    [data-widget] {
+      width: 100% !important;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="widget-container">
+    <!-- First widget with overlay -->
+    <div class="widget-wrapper">
+      <div data-widget="ok-month-sm"></div>
+      <div class="widget-header-block"></div>
+    </div>
+
+    <!-- Second widget 2px below -->
+    <div class="widget-wrapper second-widget">
+      <div data-widget="ok-holidays"></div>
+    </div>
+  </div>
+
+  <script async src="https://calendar.onlinekhabar.com/dist/okcalendar.min.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(reg => console.log('Service Worker Registered', reg))
+    .catch(err => console.error('SW registration failed:', err));
+}
+  </script>
+</body>
+</html>
